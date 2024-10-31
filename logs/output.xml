@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-10-31T08:42:43.917808" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\Gileno OP\OneDrive\Desktop\Curso_Automacao\Cursos_QAx\projects\Robot\mark85-robot-express\tests">
+<suite id="s1-s1" name="Signup" source="C:\Users\Gileno OP\OneDrive\Desktop\Curso_Automacao\Cursos_QAx\projects\Robot\mark85-robot-express\tests\signup.robot">
+<test id="s1-s1-t1" name="Cadastrar novo usuário sem preencher campos obrigatórios" line="9">
+<kw name="Start Session" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-10-31T08:42:44.428914" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Gileno OP\\OneDrive\\Desktop\\Curso_Automacao\\Cursos_QAx\\projects\\Robot\\mark85-robot-express\\logs\\browser\\traces\\1855ce38-d92c-4db3-b3e9-5cf21ddb02ca"}</msg>
+<msg time="2024-10-31T08:42:44.451449" level="INFO">Starting Browser process C:\Python313\Lib\site-packages\Browser\wrapper\index.js using port 55446</msg>
+<msg time="2024-10-31T08:42:44.451594" level="INFO">Node startup parameters: ['node', 'C:\\Python313\\Lib\\site-packages\\Browser\\wrapper\\index.js', '55446']</msg>
+<msg time="2024-10-31T08:42:45.294965" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Gileno OP\\OneDrive\\Desktop\\Curso_Automacao\\Cursos_QAx\\projects\\Robot\\mark85-robot-express\\logs\\browser\\traces\\1855ce38-d92c-4db3-b3e9-5cf21ddb02ca"}</msg>
+<arg>browser=Chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-10-31T08:42:44.428334" elapsed="0.866842"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-10-31T08:42:45.819711" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-10-31T08:42:45.819810" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.295516" elapsed="0.524652"/>
+</kw>
+<status status="PASS" start="2024-10-31T08:42:44.427826" elapsed="1.392535"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-31T08:42:45.822448" level="INFO">${user} = {'name': '', 'email': '', 'password': ''}</msg>
+<var>${user}</var>
+<arg>name=${EMPTY}</arg>
+<arg>email=${EMPTY}</arg>
+<arg>password=${EMPTY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.820788" elapsed="0.001713"/>
+</kw>
+<kw name="Go to signup page" owner="SignupPage">
+<kw name="Go To" owner="Browser">
+<msg time="2024-10-31T08:42:45.876374" level="INFO">Successfully opened URL http://localhost:3000/signup</msg>
+<arg>http://localhost:3000/signup</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.823135" elapsed="0.053467"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-10-31T08:42:45.914926" level="INFO">Waited for Element with selector css=h1 at state visible</msg>
+<arg>css=h1</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.876860" elapsed="0.038224"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-10-31T08:42:45.940232" level="INFO">Text: 'Faça seu cadastro'</msg>
+<arg>css=h1</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.915267" elapsed="0.025076"/>
+</kw>
+<status status="PASS" start="2024-10-31T08:42:45.822869" elapsed="0.117597"/>
+</kw>
+<kw name="Submit signup form" owner="SignupPage">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-10-31T08:42:45.941694" level="INFO">Fills the text '' in the given field.</msg>
+<arg>css=#name</arg>
+<arg>${user}[name]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.941211" elapsed="0.020037"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-10-31T08:42:45.961903" level="INFO">Fills the text '' in the given field.</msg>
+<arg>css=#email</arg>
+<arg>${user}[email]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.961464" elapsed="0.012519"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-10-31T08:42:45.974849" level="INFO">Fills the text '' in the given field.</msg>
+<arg>css=#password</arg>
+<arg>${user}[password]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.974326" elapsed="0.012519"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-10-31T08:42:45.987445" level="INFO">Clicks the element 'text=Cadastrar'.</msg>
+<arg>text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-10-31T08:42:45.987047" elapsed="0.044026"/>
+</kw>
+<arg>${user}</arg>
+<status status="PASS" start="2024-10-31T08:42:45.940800" elapsed="0.090529"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-31T08:42:47.032162" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-31T08:42:46.031800" elapsed="1.000489"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-10-31T08:42:47.253125" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-10-31T08:42:47.032736" elapsed="0.220536"/>
+</kw>
+<tag>required</tag>
+<status status="PASS" start="2024-10-31T08:42:44.427118" elapsed="2.826337"/>
+</test>
+<doc>Cenários de testes do cadastro de usuários</doc>
+<status status="PASS" start="2024-10-31T08:42:43.944837" elapsed="3.368690"/>
+</suite>
+<status status="PASS" start="2024-10-31T08:42:43.919207" elapsed="3.402578"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">required</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Signup">Tests.Signup</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-31T08:42:44.424573" level="ERROR">Error in file 'C:\Users\Gileno OP\OneDrive\Desktop\Curso_Automacao\Cursos_QAx\projects\Robot\mark85-robot-express\resources\pages\SignupPage.resource' on line 5: Resource file '..\env.robot' does not exist.</msg>
+</errors>
+</robot>
