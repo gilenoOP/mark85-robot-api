@@ -6,6 +6,10 @@ Test Setup        Start Session
 Test Teardown     Take Screenshot
 
 *** Test Cases ***
+Validar tela de cadastro
+    [Tags]    val_signup_screen
+    Validate signup screen
+
 Validar botão de voltar para login
     [Tags]    back_login
     Go to signup page
@@ -25,7 +29,7 @@ Cadastrar novo usuário sem preencher campos obrigatórios
     Alert should be           Informe uma senha com pelo menos 6 digitos
 
 Cadastrar novo usuário com email inválido
-    [Tags]    inv
+    [Tags]    email_inv
     ${user}        Create Dictionary
     ...            name=Anne Simpson
     ...            email=anne.simp@outlook
