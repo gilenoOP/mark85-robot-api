@@ -6,6 +6,11 @@ Test Setup        Start Session
 Test Teardown     Take Screenshot
 
 *** Test Cases ***
+Validar botão de voltar para login
+    [Tags]    back_login
+    Go to signup page
+    Click on the back to login button
+
 Cadastrar novo usuário sem preencher campos obrigatórios
     [Tags]    required
     ${user}        Create Dictionary
@@ -14,21 +19,21 @@ Cadastrar novo usuário sem preencher campos obrigatórios
     ...            password=${EMPTY}
 
     Go to signup page
-    Submit signup form           ${user}
-    Sleep    1
+    Submit signup form        ${user}
+    Alert should be           Informe seu nome completo
+    Alert should be           Informe seu e-email
+    Alert should be           Informe uma senha com pelo menos 6 digitos
 
-Cadastrar novo usuário
-    [Tags]    success
+Cadastrar novo usuário com email inválido
+    [Tags]    inv
     ${user}        Create Dictionary
-    ...            name=Gileno Oliveira
-    ...            email=gileno.teste@gmail.com
+    ...            name=Anne Simpson
+    ...            email=anne.simp@outlook
     ...            password=pwd123
 
-    Remove user from database    ${user}[email]
     Go to signup page
-    Submit signup form           ${user}
-    Notice should be             Boas vindas ao Mark85, o seu gerenciador de tarefas.
-    Sleep    1
+    Submit signup form        ${user}
+    Alert should be           Digite um e-mail válido
 
 Cadastrar novo usuário com email duplicado
     [Tags]    duplicate
@@ -42,4 +47,29 @@ Cadastrar novo usuário com email duplicado
     Go to signup page
     Submit signup form           ${user}
     Notice should be             Oops! Já existe uma conta com o e-mail informado.
-    Sleep    1
+
+Cadastrar novo usuário com senha abaixo de 6 caracteres
+    [Tags]    pass_inv
+    Go to signup page
+    @{password_list}    Create List    p    pw    pwd    pwd1    pwd12
+    FOR    ${password}    IN    @{password_list}
+        ${user}        Create Dictionary
+        ...            name=Anne Simpson
+        ...            email=anne.simp@outlook.com
+        ...            password=${password}
+
+        Submit signup form        ${user}
+        Alert should be           Informe uma senha com pelo menos 6 digitos        
+    END
+
+Cadastrar novo usuário
+    [Tags]    success
+    ${user}        Create Dictionary
+    ...            name=Gileno Oliveira
+    ...            email=gileno.teste@gmail.com
+    ...            password=pwd123
+
+    Remove user from database    ${user}[email]
+    Go to signup page
+    Submit signup form           ${user}
+    Notice should be             Boas vindas ao Mark85, o seu gerenciador de tarefas.
