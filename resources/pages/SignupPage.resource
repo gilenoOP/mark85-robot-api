@@ -33,13 +33,3 @@ Submit signup form
     Fill Text    css=#email       ${user}[email]
     Fill Text    css=#password    ${user}[password]
     Click        text=Cadastrar
-
-Alert should be
-    [Arguments]        ${expected_alert}
-    Wait For Elements State    css=.alert-error >> text=${expected_alert}   visible    5
-
-Notice should be
-    [Arguments]    ${expected_text}
-    ${element}     Set Variable    css=.notice p
-    Wait For Elements State    ${element}       visible    5
-    Get Text                   ${element}       equal      ${expected_text}
