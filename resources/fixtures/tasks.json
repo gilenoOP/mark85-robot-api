@@ -1,0 +1,13 @@
+{
+    "Create": {
+        "user": {
+            "name": "Alessandro Galvão",
+            "email": "ale.galvao@yahoo.com",
+            "password": "pwd123"
+        },
+        "task":{
+            "name": "Criar uma nova versão do app Passei com dez",
+            "tags": ["concurso", "preparatório"]
+        }
+    }
+}
