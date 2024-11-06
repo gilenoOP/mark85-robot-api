@@ -46,8 +46,8 @@ Cadastrar novo usuário com email duplicado
     ...            email=mtyson@yahoo.com
     ...            password=pwd123
 
-    Remove user from database    ${user}[email]
-    Insert user from database    ${user}
+    Removes user from database    ${user}[email]
+    Inserts user from database    ${user}
     Go to signup page
     Submit signup form           ${user}
     Notice should be             Oops! Já existe uma conta com o e-mail informado.
@@ -73,7 +73,7 @@ Cadastrar novo usuário
     ...            email=gileno.teste@gmail.com
     ...            password=pwd123
 
-    Remove user from database    ${user}[email]
+    Removes user from database    ${user}[email]
     Go to signup page
     Submit signup form           ${user}
     Notice should be             Boas vindas ao Mark85, o seu gerenciador de tarefas.
