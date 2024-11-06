@@ -12,3 +12,6 @@ User should be logged
 
     Wait For Elements State    ${element}    visible    5
     Get Text                   ${element}    equal      Olá, ${splited_name}[0]
+
+Go to the new tasks form
+    Click    css=.button-add
