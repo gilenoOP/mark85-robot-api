@@ -8,10 +8,10 @@ Library        String
 User should be logged
     [Arguments]        ${name}
     ${splited_name}        Split String    ${name}
-    ${element}    Set Variable    css=header .right small
+    ${element}    Set Variable    css=header small
 
     Wait For Elements State    ${element}    visible    5
     Get Text                   ${element}    equal      Olá, ${splited_name}[0]
 
 Go to the new tasks form
-    Click    css=.button-add
+    Click    css=a button[type="button"]

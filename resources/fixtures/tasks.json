@@ -5,9 +5,59 @@
             "email": "ale.galvao@yahoo.com",
             "password": "pwd123"
         },
+        "task":[
+            {
+                "name": "Criar uma nova versão do app Passei com dez",
+                "tags": ["Concurso", "Preparatório"]
+            },
+            {
+                "name": "Atualizar documentação",
+                "tags": ["Documentação", "Urgente"]
+            }
+        ]
+    },
+    "Duplicate": {
+        "user": {
+            "name": "Amanda Waller",
+            "email": "waller@chequemate.com",
+            "password": "pwd123"
+        },
         "task":{
-            "name": "Criar uma nova versão do app Passei com dez",
-            "tags": ["concurso", "preparatório"]
+            "name": "Recrutar novos meta humanos",
+            "tags": [""]
+        }
+    },
+    "OneDoneTask": {
+        "user": {
+            "name": "Afrânio Louzada",
+            "email": "louzada@hotmail.com",
+            "password": "pwd123"
+        },
+        "task":{
+            "name": "Aparar a barba",
+            "tags": ["Barbeiro", "Shopping"]
+        }
+    },
+    "AllDoneTasks": {
+        "user": {
+            "name": "Zélia Dummer",
+            "email": "z.dummer@gmail.com",
+            "password": "pwd123"
+        },
+        "task":{
+            "name": "Realizar visita técnica",
+            "tags": ["Projeto", "Construção civil"]
+        }
+    },
+    "DeleteTask": {
+        "user": {
+            "name": "André Salles",
+            "email": "salles.a@hotmail.com",
+            "password": "pwd123"
+        },
+        "task":{
+            "name": "Comprar roupa para o batizado",
+            "tags": ["Sobrinho", "Batizado", "Cerimônia"]
         }
     }
 }
