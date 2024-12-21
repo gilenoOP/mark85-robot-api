@@ -1,8 +1,47 @@
 {
-    "Create": {
+    "CreateTaskWithoutTags": {
+        "user": {
+            "name": "Cirilo Gomes",
+            "email": "c.gomes@yahoo.com",
+            "password": "pwd123"
+        },
+        "task":{
+                "name": "Cortar a grama",
+                "tags": [""]
+        }        
+    },
+    "CreateTaskWithTags": {
+        "user": {
+            "name": "Richard Thompsom",
+            "email": "r.thomp@yahoo.com",
+            "password": "pwd123"
+        },
+        "task":{
+                "name": "Realizar live",
+                "tags": ["Youtube", "Twitch"]
+        }        
+    },
+    "CreateTasksWithoutTags": {
         "user": {
             "name": "Alessandro Galvão",
             "email": "ale.galvao@yahoo.com",
+            "password": "pwd123"
+        },
+        "task":[
+            {
+                "name": "Criar site e-commerce",
+                "tags": [""]
+            },
+            {
+                "name": "Lançar site na internet",
+                "tags": [""]
+            }
+        ]
+    },
+    "CreateTasksWithTags": {
+        "user": {
+            "name": "Cléber Ramos",
+            "email": "ramos@outlook.com",
             "password": "pwd123"
         },
         "task":[

@@ -8,16 +8,49 @@ Test Setup           Start Session
 Test Teardown        Take Screenshot
 
 *** Test Cases ***
-Cadastrar nova tarefa
-    [Tags]    cad_tasks
-    ${data}    Get fixture    tasks    Create
+Cadastrar nova tarefa sem tags
+    [Tags]    cad_task
+    ${data}    Get fixture    tasks    CreateTaskWithoutTags
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
     Submit login form                ${data}[user]
     User should be logged            ${data}[user][name]
     Go to the new tasks form
-    Submit task form                 ${data}[task]
+    Register tasks                   ${data}[task]
     Task should be registered        ${data}[task]
+
+Cadastrar nova tarefa com tags
+    [Tags]    cad_task
+    ${data}    Get fixture    tasks    CreateTaskWithTags
+    Cleans user from database        ${data}[user][email]
+    Inserts user from database       ${data}[user]
+    Submit login form                ${data}[user]
+    User should be logged            ${data}[user][name]
+    Go to the new tasks form
+    Register tasks                   ${data}[task]
+    Task should be registered        ${data}[task]
+
+Cadastrar novas tarefas sem tags
+    [Tags]    cad_tasks
+    ${data}    Get fixture    tasks    CreateTasksWithoutTags
+    Cleans user from database        ${data}[user][email]
+    Inserts user from database       ${data}[user]
+    Submit login form                ${data}[user]
+    User should be logged            ${data}[user][name]
+    Go to the new tasks form
+    Register tasks                    ${data}[task]
+    Tasks should be registered        ${data}[task]
+
+Cadastrar novas tarefas com tags
+    [Tags]    cad_tasks
+    ${data}    Get fixture    tasks    CreateTasksWithTags
+    Cleans user from database        ${data}[user][email]
+    Inserts user from database       ${data}[user]
+    Submit login form                ${data}[user]
+    User should be logged            ${data}[user][name]
+    Go to the new tasks form
+    Register tasks                    ${data}[task]
+    Tasks should be registered        ${data}[task]
 
 Cadastrar tarefa duplicada
     [Tags]    dup
