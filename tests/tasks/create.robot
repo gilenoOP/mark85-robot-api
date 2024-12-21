@@ -20,7 +20,7 @@ Cadastrar nova tarefa sem tags
     Task should be registered        ${data}[task]
 
 Cadastrar nova tarefa com tags
-    [Tags]    cad_task
+    [Tags]    cad_task_tags
     ${data}    Get fixture    tasks    CreateTaskWithTags
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
@@ -42,7 +42,7 @@ Cadastrar novas tarefas sem tags
     Tasks should be registered        ${data}[task]
 
 Cadastrar novas tarefas com tags
-    [Tags]    cad_tasks
+    [Tags]    cad_tasks_tags
     ${data}    Get fixture    tasks    CreateTasksWithTags
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
