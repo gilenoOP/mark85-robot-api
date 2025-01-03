@@ -25,3 +25,15 @@ Tasks should be registered
         Wait For Elements State    css=.task-todo >> text=${actual_task}[name]    visible                5
         Run Keyword If    len(${tags}) >= 1 and any(${tags})    Wait For Multiple Tags    @{tags}
     END
+
+Task should be completed
+    [Arguments]        ${task_name}
+    ${element}     Set Variable    css=.task-done >> text=${task_name}
+    Wait For Elements State    ${element}    visible    5
+    Get Style    ${element}    text-decoration-line    equal    line-through
+
+Mark task as completed
+    [Arguments]        ${task_name}
+    ${element}    Set Variable    xpath=//strong[text()="${task_name}"]/..//button[@class="item-toggle"]
+    Wait For Elements State    ${element}    visible    5
+    Click    ${element}

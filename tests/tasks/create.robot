@@ -52,31 +52,39 @@ Cadastrar novas tarefas com tags
     Register tasks                    ${data}[task]
     Tasks should be registered        ${data}[task]
 
-Cadastrar tarefa duplicada
-    [Tags]    dup
-    ${data}    Get fixture    tasks    Duplicate
+Cadastrar tarefa com mais do que 3 tags
+    [Tags]    tags_lim
+    ${data}    Get fixture    tasks    TagsLimit
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
     Submit login form                ${data}[user]
     User should be logged            ${data}[user][name]
     Go to the new tasks form
     Submit task form                 ${data}[task]
+    Notice should be                 Oops! Limite de tags atingido.
+
+Cadastrar tarefa duplicada
+    [Tags]    dup
+    ${data}    Get fixture    tasks    Duplicate
+    Cleans user from database        ${data}[user][email]
+    Inserts user from database       ${data}[user]
+    POST user session                ${data}[user]
+    POST a new task                  ${data}[task]
+    Submit login form                ${data}[user]
+    User should be logged            ${data}[user][name]
     Go to the new tasks form
     Submit task form                 ${data}[task]
     Notice should be                 Oops! Tarefa duplicada.
 
 Marcar uma tarefa como realizada
     [Tags]    one_done
-    ${data}    Get fixture    tasks    OneTaskDone
+    ${data}    Get fixture    tasks    OneDoneTask
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
     Submit login form                ${data}[user]
     User should be logged            ${data}[user][name]
     Go to the new tasks form
     Submit task form                 ${data}[task]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]
-    Notice should be                 Oops! Tarefa duplicada.
 
 Marcar todas as terefas como finalizada
     [Tags]    all_done
@@ -87,9 +95,6 @@ Marcar todas as terefas como finalizada
     User should be logged            ${data}[user][name]
     Go to the new tasks form
     Submit task form                 ${data}[task]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]
-    Notice should be                 Oops! Tarefa duplicada.
 
 Excluir tarefa
     [Tags]    del_task
@@ -100,6 +105,3 @@ Excluir tarefa
     User should be logged            ${data}[user][name]
     Go to the new tasks form
     Submit task form                 ${data}[task]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]
-    Notice should be                 Oops! Tarefa duplicada.

@@ -55,6 +55,17 @@
             }
         ]
     },
+    "TagsLimit": {
+        "user": {
+            "name": "Hayley Williams",
+            "email": "hayley.williams@gmail.com",
+            "password": "pwd123"
+        },
+        "task":{
+            "name": "Ensaiar com a banda",
+            "tags": ["Trabalho", "TV show", "Turnê", "Lazer"]
+        }
+    },
     "Duplicate": {
         "user": {
             "name": "Amanda Waller",
