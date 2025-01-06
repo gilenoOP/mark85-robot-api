@@ -60,7 +60,7 @@ Cadastrar tarefa com mais do que 3 tags
     Submit login form                ${data}[user]
     User should be logged            ${data}[user][name]
     Go to the new tasks form
-    Submit task form                 ${data}[task]
+    Register tasks                   ${data}[task]
     Notice should be                 Oops! Limite de tags atingido.
 
 Cadastrar tarefa duplicada
@@ -73,35 +73,5 @@ Cadastrar tarefa duplicada
     Submit login form                ${data}[user]
     User should be logged            ${data}[user][name]
     Go to the new tasks form
-    Submit task form                 ${data}[task]
+    Register tasks                   ${data}[task]
     Notice should be                 Oops! Tarefa duplicada.
-
-Marcar uma tarefa como realizada
-    [Tags]    one_done
-    ${data}    Get fixture    tasks    OneDoneTask
-    Cleans user from database        ${data}[user][email]
-    Inserts user from database       ${data}[user]
-    Submit login form                ${data}[user]
-    User should be logged            ${data}[user][name]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]
-
-Marcar todas as terefas como finalizada
-    [Tags]    all_done
-    ${data}    Get fixture    tasks    AllDoneTasks
-    Cleans user from database        ${data}[user][email]
-    Inserts user from database       ${data}[user]
-    Submit login form                ${data}[user]
-    User should be logged            ${data}[user][name]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]
-
-Excluir tarefa
-    [Tags]    del_task
-    ${data}    Get fixture    tasks    DeleteTask
-    Cleans user from database        ${data}[user][email]
-    Inserts user from database       ${data}[user]
-    Submit login form                ${data}[user]
-    User should be logged            ${data}[user][name]
-    Go to the new tasks form
-    Submit task form                 ${data}[task]

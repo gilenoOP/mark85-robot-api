@@ -88,17 +88,6 @@
             "tags": ["Barbeiro", "Shopping"]
         }
     },
-    "AllDoneTasks": {
-        "user": {
-            "name": "Zélia Dummer",
-            "email": "z.dummer@gmail.com",
-            "password": "pwd123"
-        },
-        "task":{
-            "name": "Realizar visita técnica",
-            "tags": ["Projeto", "Construção civil"]
-        }
-    },
     "DeleteTask": {
         "user": {
             "name": "André Salles",

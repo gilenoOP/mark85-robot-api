@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation        Cenários de testes de atualização de tarefas
+Documentation        Cenários de testes de exclusão de tarefas
 
 Resource        ../../resources/base.resource
 
@@ -7,9 +7,9 @@ Test Setup           Start Session
 Test Teardown        Take Screenshot
 
 *** Test Cases ***
-Marcar tarefa como concluída
-    [Tags]    task_done
-    ${data}    Get fixture    tasks    OneDoneTask
+Realizar a exclusão de uma tarefa
+    [Tags]    del_task
+    ${data}    Get fixture    tasks    DeleteTask
     Cleans user from database        ${data}[user][email]
     Inserts user from database       ${data}[user]
     
@@ -17,5 +17,5 @@ Marcar tarefa como concluída
     POST a new task              ${data}[task]
     Submit login form            ${data}[user]
     User should be logged        ${data}[user][name]
-    Mark task as completed       ${data}[task][name]
-    Task should be completed     ${data}[task][name]
+    Request removal              ${data}[task][name]
+    Task should not exist        ${data}[task][name]
