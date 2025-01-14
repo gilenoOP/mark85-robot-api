@@ -17,7 +17,7 @@ Resource       services.resource
 
 *** Keywords ***
 Start Session
-    New Browser     browser=Chromium    headless=False
+    New Browser     browser=${BROWSER}    headless=False
     New Page        ${BASE_URL}
 
 Get fixture
@@ -25,3 +25,18 @@ Get fixture
     ${data}    Load Json From File    ${EXECDIR}/resources/fixtures/${file_name}.json    encoding=utf-8
 
     RETURN    ${data}[${cenario}]
+
+Reset user from database
+    [Arguments]        ${user}
+    Cleans user from database        ${user}[email]
+    Inserts user from database       ${user}
+
+Do login
+    [Arguments]        ${user}
+    Submit login form                ${user}
+    User should be logged            ${user}[name]
+
+Create a new task from api
+    [Arguments]        ${data}
+    POST user session   ${data}[user]
+    POST a new task     ${data}[task]

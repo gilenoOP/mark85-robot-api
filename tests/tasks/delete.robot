@@ -10,12 +10,9 @@ Test Teardown        Take Screenshot
 Realizar a exclusão de uma tarefa
     [Tags]    del_task
     ${data}    Get fixture    tasks    DeleteTask
-    Cleans user from database        ${data}[user][email]
-    Inserts user from database       ${data}[user]
+    Reset user from database         ${data}[user]
     
-    POST user session            ${data}[user]
-    POST a new task              ${data}[task]
-    Submit login form            ${data}[user]
-    User should be logged        ${data}[user][name]
-    Request removal              ${data}[task][name]
-    Task should not exist        ${data}[task][name]
+    Create a new task from api       ${data}
+    Do login                         ${data}[user]
+    Request removal                  ${data}[task][name]
+    Task should not exist            ${data}[task][name]
